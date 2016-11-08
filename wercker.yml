@@ -1,4 +1,4 @@
-box: debian
+box: alpine
 
 build:
   steps:
@@ -7,9 +7,16 @@ build:
       code: |
         echo "running unit tests"
     - script:
-      name: unit
+      name: artifact build
       code: |
         echo "building artifacts"
+    - script:
+      name: code quality
+      code: |
+        echo "analyzing code quality"
+
+container-build:
+  steps:
     - script:
       name: container build
       code: |
