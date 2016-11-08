@@ -3,43 +3,42 @@ box: debian
 build:
   steps:
     - script:
-        name: unit
-        code: |
-          echo "running unit tests"
+      name: unit
+      code: |
+        echo "running unit tests"
     - script:
-        name: unit
-        code: |
-          echo "building artifacts"
+      name: unit
+      code: |
+        echo "building artifacts"
     - script:
-        name: container build
-        code: |
-          echo "building container image"
+      name: container build
+      code: |
+        echo "building container image"
 
 deploy-dev:
   steps:
     - script:
-        name: deploy dev
-        code: |
-          echo "deploying to development environment"
+      name: deploy dev
+      code: |
+        echo "deploying to development environment"
 
 acceptance-dev:
   steps:
     - script:
-        name: acceptance dev
-        code: |
-          echo "running acceptance test on development environment"
+      name: acceptance dev
+      code: |
+        echo "running acceptance test on development environment"
 
 deploy-prod:
   steps:
     - script:
-        name: deploy prod
-        code: |
-          echo "deploying to production environment"
- 
- acceptance-prod:
+      name: deploy prod
+      code: |
+        echo "deploying to production environment"
+
+acceptance-prod:
   steps:
     - script:
-        name: acceptance prod
-        code: |
-          echo "running acceptance test on production environment"
- 
+      name: acceptance prod
+      code: |
+        echo "running acceptance test on production environment"
