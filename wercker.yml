@@ -1,26 +1,45 @@
-# This references a standard debian container from the
-# Docker Hub https://registry.hub.docker.com/_/debian/
-# Read more about containers on our dev center
-# http://devcenter.wercker.com/docs/containers/index.html
 box: debian
-# You can also use services such as databases. Read more on our dev center:
-# http://devcenter.wercker.com/docs/services/index.html
-# services:
-    # - postgres
-    # http://devcenter.wercker.com/docs/services/postgresql.html
 
-    # - mongo
-    # http://devcenter.wercker.com/docs/services/mongodb.html
-
-# This is the build pipeline. Pipelines are the core of wercker
-# Read more about pipelines on our dev center
-# http://devcenter.wercker.com/docs/pipelines/index.html
 build:
-    # Steps make up the actions in your pipeline
-    # Read more about steps on our dev center:
-    # http://devcenter.wercker.com/docs/steps/index.html
   steps:
     - script:
-        name: echo
+        name: unit
         code: |
-          echo "hello world!"
+          echo "running unit tests"
+    - script:
+        name: unit
+        code: |
+          echo "building artifacts"
+    - script:
+        name: container build
+        code: |
+          echo "building container image"
+
+deploy-dev:
+  steps:
+    - script:
+        name: deploy dev
+        code: |
+          echo "deploying to development environment"
+
+acceptance-dev:
+  steps:
+    - script:
+        name: acceptance dev
+        code: |
+          echo "running acceptance test on development environment"
+
+deploy-prod:
+  steps:
+    - script:
+        name: deploy prod
+        code: |
+          echo "deploying to production environment"
+ 
+ acceptance-prod:
+  steps:
+    - script:
+        name: acceptance prod
+        code: |
+          echo "running acceptance test on production environment"
+ 
